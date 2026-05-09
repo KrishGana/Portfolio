@@ -1,0 +1,214 @@
+.skills {
+    background: var(--color-ink);
+    padding: 8rem 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.skills::before {
+    content: 'SKILLS';
+    position: absolute;
+    top: -2rem;
+    left: -1rem;
+    font-family: var(--font-display);
+    font-size: 14rem;
+    color: rgba(255, 255, 255, 0.02);
+    pointer-events: none;
+}
+
+.skills-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-tag {
+    font-size: 0.78rem;
+    color: var(--color-acid);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    color: var(--color-paper);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+}
+
+.accent {
+    color: var(--color-acid);
+}
+
+.section-sub {
+    color: var(--color-muted);
+    font-size: 1rem;
+}
+
+.skill-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-muted);
+    padding: 0.6rem 1.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tab-btn:hover {
+    border-color: var(--color-acid);
+    color: var(--color-paper);
+}
+
+.tab-btn.active {
+    background: var(--color-acid);
+    color: var(--color-ink);
+    border-color: var(--color-acid);
+}
+
+.tab-icon-img {
+    width: 1.2rem;
+    height: 1.2rem;
+    object-fit: contain;
+    color: var(--color-acid); /* For Lucide icons */
+    filter: brightness(0.8);
+}
+
+.tab-btn.active .tab-icon-img {
+    filter: brightness(0); /* Black on acid green background */
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 4rem;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 1.4rem;
+    animation: fadeUp 0.5s ease both;
+    transition: border-color 0.3s;
+}
+
+.skill-card:hover {
+    border-color: rgba(200, 255, 100, 0.25);
+}
+
+.skill-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+}
+
+.skill-name-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.skill-icon-img {
+    width: 1.25rem;
+    height: 1.25rem;
+    object-fit: contain;
+    color: var(--color-acid); /* For Lucide icons */
+}
+
+.skill-name {
+    font-size: 0.9rem;
+    color: var(--color-paper);
+    font-weight: 500;
+}
+
+.skill-level {
+    font-size: 0.75rem;
+    color: var(--color-acid);
+}
+
+.skill-bar {
+    height: 3px;
+    background: rgba(255, 255, 255, 0.07);
+    margin-bottom: 0.6rem;
+    position: relative;
+}
+
+.skill-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-meta {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--color-muted);
+}
+
+.tools-strip {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 2.5rem;
+}
+
+.tools-label {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+}
+
+.tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.tool-tag {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 0.35rem 0.8rem;
+    transition: all 0.3s;
+}
+
+.tool-tag:hover {
+    color: var(--color-paper);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media(max-width:768px) {
+    .skills {
+        padding: 5rem 1.5rem;
+    }
+}

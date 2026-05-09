@@ -1,0 +1,320 @@
+.contact {
+    background: var(--color-ink);
+    padding: 10rem 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: 'SEND';
+    position: absolute;
+    bottom: -2rem;
+    left: -1rem;
+    font-family: var(--font-display);
+    font-size: 20rem;
+    color: rgba(200, 255, 100, 0.03);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.contact-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 8rem;
+    align-items: start;
+}
+
+.section-tag {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--color-acid);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    color: var(--color-paper);
+    line-height: 0.9;
+    margin-bottom: 2rem;
+}
+
+.accent {
+    color: var(--color-acid);
+}
+
+.contact-body {
+    color: var(--color-muted);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 3.5rem;
+    max-width: 450px;
+}
+
+/* Links */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.link-glass {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    z-index: -1;
+    transition: background 0.4s;
+}
+
+.contact-link:hover {
+    border-color: var(--color-acid);
+    transform: translateX(10px);
+}
+
+.contact-link:hover .link-glass {
+    background: rgba(200, 255, 100, 0.05);
+}
+
+.link-icon-img {
+    width: 1.6rem;
+    height: 1.6rem;
+    object-fit: contain;
+    transition: all 0.4s;
+    color: var(--color-acid); /* For abstract icons like mail */
+}
+
+.contact-link:hover .link-icon-img {
+    transform: scale(1.1);
+}
+
+.link-label {
+    font-size: 0.7rem;
+    color: var(--color-acid);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+}
+
+.link-value {
+    font-size: 1rem;
+    color: var(--color-paper);
+    font-weight: 500;
+}
+
+.link-arrow {
+    margin-left: auto;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 1.2rem;
+    transition: all 0.4s;
+}
+
+.contact-link:hover .link-arrow {
+    color: var(--color-acid);
+    transform: translate(4px, -4px);
+}
+
+/* Terminal Window */
+.terminal-window {
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 0.5rem;
+    margin-right: 1.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot.close { background: #ff5f56; }
+.dot.minimize { background: #ffbd2e; }
+.dot.expand { background: #27c93f; }
+
+.terminal-title {
+    font-size: 0.7rem;
+    color: var(--color-muted);
+    letter-spacing: 0.05em;
+}
+
+.contact-form {
+    padding: 2.5rem;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-acid);
+    margin-bottom: 0.8rem;
+    opacity: 0.8;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.form-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--color-paper);
+    padding: 1rem 1.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s;
+    border-radius: 0;
+}
+
+.form-input:focus {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(200, 255, 100, 0.3);
+}
+
+.input-focus-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-acid);
+    transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.form-input:focus + .input-focus-line {
+    width: 100%;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+/* Console Area */
+.terminal-console {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem 1.2rem;
+    margin-bottom: 2rem;
+    border-left: 2px solid var(--color-muted);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    opacity: 0.5;
+    transition: all 0.3s;
+}
+
+.terminal-console.active {
+    opacity: 1;
+    border-left-color: var(--color-acid);
+}
+
+.prompt { color: var(--color-acid); }
+.status-text { color: var(--color-paper); }
+
+.cursor {
+    width: 8px;
+    height: 15px;
+    background: var(--color-acid);
+    display: inline-block;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Button */
+.submit-btn {
+    width: 100%;
+    background: var(--color-acid);
+    color: var(--color-ink);
+    border: none;
+    padding: 1.2rem;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+}
+
+.submit-btn:hover:not(:disabled) {
+    background: var(--color-paper);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--color-muted);
+}
+
+.submit-btn.success {
+    background: #4ade80;
+}
+
+.submit-btn.sending {
+    background: var(--color-muted);
+}
+
+@media (max-width: 1000px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 5rem;
+    }
+    
+    .contact {
+        padding: 6rem 1.5rem;
+    }
+
+    .section-heading {
+        font-size: 3.5rem;
+    }
+}

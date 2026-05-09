@@ -1,0 +1,51 @@
+<section class="about">
+    <div class="about-grid">
+        <div class="about-left">
+            <div class="section-tag"><span class="mono">// 01</span> About</div>
+            <h2 class="section-heading">I Build Things<br><span class="accent">That Scale.</span></h2>
+
+            <div class="about-body">
+                <p>
+                    I'm a full-stack developer with 5+ years turning complex problems into
+                    elegant, performant software. My stack lives at the intersection of
+                    <strong>Angular</strong> frontends, <strong>.NET</strong> APIs, and
+                    <strong>Python</strong> automation pipelines.
+                </p>
+                <p>
+                    I care deeply about developer experience, clean architecture, and shipping
+                    products people actually enjoy using — not just technically correct code.
+                </p>
+            </div>
+
+            <div class="about-stack">
+                @for (s of stackItems; track s.label) {
+                <div class="stack-item">
+                    <img [ngSrc]="s.icon" [alt]="s.label" class="stack-icon-img" width="20" height="20">
+                    <span>{{s.label}}</span>
+                </div>
+                }
+            </div>
+        </div>
+
+        <div class="about-right">
+            <div class="photo-frame">
+                <div class="photo-inner">
+                    <img src="assets/images/Gana_Casual_Pic.jpg" alt="Gananathan" class="about-photo">
+                </div>
+                <div class="frame-label mono">&lt;developer /&gt;</div>
+            </div>
+
+            <div class="about-cards">
+                @for (card of cards; track card.title) {
+                <div class="about-card">
+                    <img [src]="card.icon" class="card-icon-img" [alt]="card.title">
+                    <div>
+                        <div class="card-title">{{ card.title }}</div>
+                        <div class="card-text">{{ card.text }}</div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

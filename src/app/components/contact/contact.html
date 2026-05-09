@@ -1,0 +1,92 @@
+<section class="contact">
+    <div class="contact-inner">
+        <div class="contact-grid">
+            <div class="contact-left">
+                <div class="section-tag mono">// 06 &nbsp; Contact</div>
+                <h2 class="section-heading">Let's Build<br><span class="accent">Something.</span></h2>
+                <p class="contact-body">
+                    Open to full-time roles, freelance contracts, and interesting collaborations.
+                    If you have a problem worth solving — I want to hear it.
+                </p>
+
+                <div class="contact-links">
+                    <a *ngFor="let link of links" [href]="link.url" target="_blank" class="contact-link" data-hover>
+                        <div class="link-glass"></div>
+                        <img [src]="link.icon" class="link-icon-img" [alt]="link.label">
+                        <div>
+                            <div class="link-label mono">{{link.label}}</div>
+                            <div class="link-value">{{link.value}}</div>
+                        </div>
+                        <span class="link-arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-right">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot close"></span>
+                            <span class="dot minimize"></span>
+                            <span class="dot expand"></span>
+                        </div>
+                        <div class="terminal-title mono">bash — send_message.sh</div>
+                    </div>
+                    
+                    <form class="contact-form" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label class="form-label mono">sender_name</label>
+                            <div class="input-wrapper">
+                                <input type="text" class="form-input" placeholder="Your name" [(ngModel)]="form.name"
+                                    name="name" required [disabled]="status === 'sending'">
+                                <span class="input-focus-line"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label mono">sender_email</label>
+                            <div class="input-wrapper">
+                                <input type="email" class="form-input" placeholder="your@email.com" [(ngModel)]="form.email"
+                                    name="email" required [disabled]="status === 'sending'">
+                                <span class="input-focus-line"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label mono">message_subject</label>
+                            <div class="input-wrapper">
+                                <select class="form-input" [(ngModel)]="form.subject" name="subject" [disabled]="status === 'sending'">
+                                    <option value="">Select a topic...</option>
+                                    <option *ngFor="let s of subjects" [value]="s">{{s}}</option>
+                                </select>
+                                <span class="input-focus-line"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label mono">message_body</label>
+                            <div class="input-wrapper">
+                                <textarea class="form-input form-textarea" placeholder="Tell me about your project..."
+                                    [(ngModel)]="form.message" name="message" required rows="4" [disabled]="status === 'sending'"></textarea>
+                                <span class="input-focus-line"></span>
+                            </div>
+                        </div>
+
+                        <div class="terminal-console mono" [class.active]="status !== 'idle'">
+                            <span class="prompt">></span>
+                            <span class="status-text">{{ statusMessage }}</span>
+                            <span class="cursor" *ngIf="status === 'sending'"></span>
+                        </div>
+
+                        <button type="submit" class="submit-btn" [class.sending]="status === 'sending'" [class.success]="status === 'success'" [disabled]="status === 'sending' || !form.name || !form.email || !form.message" data-hover>
+                            <span *ngIf="status === 'idle'">Send Message <span class="btn-arrow">→</span></span>
+                            <span *ngIf="status === 'sending'">Transmitting...</span>
+                            <span *ngIf="status === 'success'">✓ Message Sent</span>
+                            <span *ngIf="status === 'error'">✕ Transmission Failed</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

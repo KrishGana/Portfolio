@@ -1,0 +1,24 @@
+main {
+    overflow-x: hidden;
+}
+
+.footer {
+    background: var(--color-ink);
+    color: var(--color-muted);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.divider {
+    color: var(--color-acid);
+}
+
+.mono {
+    font-family: var(--font-mono);
+}

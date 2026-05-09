@@ -1,0 +1,27 @@
+<section class="achievements">
+    <div class="achievements-inner">
+
+        <div class="section-header">
+            <div class="section-tag mono">// 04 &nbsp; Impact</div>
+            <h2 class="section-heading">Key <span class="accent">Achievements.</span></h2>
+        </div>
+
+        <div class="achievements-grid">
+            <div class="achievement-card" *ngFor="let a of achievements; let i = index">
+
+                <div class="achievement-number mono">
+                    {{(i+1).toString().padStart(2,'0')}}
+                </div>
+
+                <h3 class="achievement-title">{{a.title}}</h3>
+                <p class="achievement-desc">{{a.desc}}</p>
+
+                <div class="achievement-tags">
+                    <span class="tag" *ngFor="let t of a.tags">{{t}}</span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>

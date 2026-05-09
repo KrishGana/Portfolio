@@ -1,0 +1,210 @@
+.about {
+    background: var(--color-surface);
+    padding: 8rem 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.about::before {
+    content: 'ABOUT';
+    position: absolute;
+    top: -2rem;
+    right: -1rem;
+    font-family: var(--font-display);
+    font-size: 14rem;
+    color: rgba(255, 255, 255, 0.02);
+    pointer-events: none;
+    line-height: 1;
+}
+
+.about-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 6rem;
+    align-items: start;
+}
+
+.section-tag {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--color-acid);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+}
+
+.section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    color: var(--color-paper);
+    line-height: 1;
+    margin-bottom: 2rem;
+}
+
+.accent {
+    color: var(--color-acid);
+}
+
+.about-body p {
+    color: var(--color-muted);
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+}
+
+.about-body strong {
+    color: var(--color-warm);
+    font-weight: 500;
+}
+
+.about-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.stack-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.5rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    transition: all 0.3s;
+}
+
+.stack-item:hover {
+    border-color: var(--color-acid);
+    color: var(--color-paper);
+}
+
+.stack-icon-img {
+    width: 1.25rem;
+    height: 1.25rem;
+    object-fit: contain;
+}
+
+.stack-icon {
+    font-size: 1rem;
+}
+
+/* Photo */
+.photo-frame {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.photo-inner {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 20px;
+        height: 20px;
+        border-top: 2px solid var(--color-acid);
+        border-left: 2px solid var(--color-acid);
+        z-index: 2;
+        opacity: 0.5;
+    }
+}
+
+.about-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.1);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.photo-frame:hover .about-photo {
+    filter: grayscale(0) contrast(1);
+    transform: scale(1.05);
+}
+
+.photo-inner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 30px,
+            rgba(255, 255, 255, 0.02) 30px, rgba(255, 255, 255, 0.02) 31px);
+}
+
+
+.frame-label {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    text-align: center;
+    margin-top: 0.75rem;
+    letter-spacing: 0.1em;
+}
+
+/* Cards */
+.about-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.about-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 1rem 1.2rem;
+    transition: border-color 0.3s;
+}
+
+.about-card:hover {
+    border-color: rgba(200, 255, 100, 0.3);
+}
+
+.card-icon-img {
+    width: 2rem;
+    height: 2rem;
+    margin-top: 2px;
+    object-fit: contain;
+    background-color: var(--color-acid);
+    /* For Lucide icons */
+}
+
+.card-title {
+    font-size: 0.85rem;
+    color: var(--color-paper);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+.card-text {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about {
+        padding: 5rem 1.5rem;
+    }
+}

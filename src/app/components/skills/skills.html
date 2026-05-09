@@ -1,0 +1,40 @@
+<section class="skills">
+    <div class="skills-inner">
+        <div class="section-header">
+            <div class="section-tag mono">// 02 &nbsp; Skills & Tools</div>
+            <h2 class="section-heading">The <span class="accent">Arsenal.</span></h2>
+            <p class="section-sub">Technologies I reach for — and what I use them to build.</p>
+        </div>
+
+        <div class="skill-tabs">
+            <button *ngFor="let cat of categories" class="tab-btn" [class.active]="activeCategory === cat.id"
+                (click)="activeCategory = cat.id" data-hover>
+                <img [src]="cat.icon" class="tab-icon-img" [alt]="cat.label"> {{cat.label}}
+            </button>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card" *ngFor="let skill of filteredSkills(); let i = index"
+                [style.animation-delay]="(i * 0.05) + 's'">
+                <div class="skill-top">
+                    <div class="skill-name-group">
+                        <img [src]="skill.icon" class="skill-icon-img" [alt]="skill.name">
+                        <span class="skill-name">{{skill.name}}</span>
+                    </div>
+                    <span class="skill-level mono">{{skill.level}}%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill" [style.width]="skill.level + '%'" [style.background]="skill.color"></div>
+                </div>
+                <div class="skill-meta">{{skill.meta}}</div>
+            </div>
+        </div>
+
+        <div class="tools-strip">
+            <div class="tools-label mono">// also proficient with</div>
+            <div class="tools-list">
+                <span class="tool-tag" *ngFor="let t of tools">{{t}}</span>
+            </div>
+        </div>
+    </div>
+</section>

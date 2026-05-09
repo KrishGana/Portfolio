@@ -1,0 +1,67 @@
+<section class="hero">
+    <canvas #bgCanvas class="bg-canvas"></canvas>
+    <div class="noise"></div>
+
+    <div class="hero-layout">
+        <div class="hero-left">
+            <div class="tag-line">
+                <span class="mono">&gt;_ </span>Full Stack Developer
+            </div>
+
+            <h1 class="hero-name">
+                <span class="name-line" *ngFor="let line of nameLines; let i = index"
+                    [style.animation-delay]="(i * 0.12) + 's'">
+                    {{line}}
+                </span>
+            </h1>
+
+            <p class="hero-sub">
+                Crafting end-to-end digital experiences with<br>
+                <span class="highlight">Angular</span> &nbsp;·&nbsp;
+                <span class="highlight">.NET</span> &nbsp;·&nbsp;
+                <span class="highlight">Python</span>
+            </p>
+
+            <div class="hero-actions">
+                <button class="btn-primary" (click)="scrollTo('projects')" data-hover>
+                    View Work
+                    <span class="btn-arrow">→</span>
+                </button>
+                <button class="btn-ghost" (click)="scrollTo('contact')" data-hover>
+                    Let's Talk
+                </button>
+            </div>
+
+            <div class="scroll-hint">
+                <div class="scroll-line"></div>
+                <span>Scroll</span>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="terminal-window">
+                <div class="terminal-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">gananathan@portfolio ~ </span>
+                </div>
+                <div class="terminal-body">
+                    <div *ngFor="let line of terminalLines; let i = index" class="t-line"
+                        [style.animation-delay]="(i * 0.4) + 's'">
+                        <span class="t-prompt" *ngIf="line.prompt">{{ line.prompt }}</span>
+                        <span [class]="'t-' + line.type">{{ line.text }}</span>
+                    </div>
+                    <div class="t-cursor"></div>
+                </div>
+            </div>
+
+            <div class="stat-cluster">
+                <div class="stat" *ngFor="let s of stats">
+                    <span class="stat-num">{{s.num}}</span>
+                    <span class="stat-label">{{s.label}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

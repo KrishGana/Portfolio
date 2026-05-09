@@ -1,0 +1,67 @@
+/* ═══════════════════════════════════════════════
+   GLOBAL STYLES — Gananathan.K.S Portfolio
+   Theme: Ink + Acid Green — Terminal Luxury
+   ═══════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+:root {
+  /* Palette */
+  --color-ink:     #0a0a0a;
+  --color-surface: #111111;
+  --color-paper:   #f0ede8;
+  --color-muted:   #6b6b6b;
+  --color-acid:    #c8ff64;      /* Signature acid green */
+  --color-warm:    #ff9a3c;      /* Warm accent orange */
+
+  /* Typography */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-mono:    'Space Mono', monospace;
+  --font-body:    'DM Sans', sans-serif;
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  cursor: none;              /* Custom cursor active */
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Only hide default cursor on desktop */
+@media (pointer: coarse) {
+  body { cursor: auto; }
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-ink); }
+::-webkit-scrollbar-thumb { background: rgba(200,255,100,0.3); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-acid); }
+
+/* Selection */
+::selection { background: var(--color-acid); color: var(--color-ink); }
+
+/* Utilities */
+.mono { font-family: var(--font-mono); }
+
+/* Scroll reveal — add via IntersectionObserver or Angular animations */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible { opacity: 1; transform: none; }
